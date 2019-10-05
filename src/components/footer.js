@@ -1,9 +1,12 @@
-import React from 'react';
-import Form from 'react-bootstrap/Form';
+import React,{useState} from 'react';
 import { IoMdSend } from 'react-icons/io';
-import Button from 'react-bootstrap/Button';
 
 const Footer=()=>{
+    const [inptxt, setinptxt] = useState("")
+    const inptxtchanged=(event)=>{
+        console.log(event.target.value)
+        setinptxt(event.target.value)
+    }
     const headStyle={
             padding:3,
             position:'absolute',
@@ -21,14 +24,16 @@ const Footer=()=>{
         fontSize:20,
         borderRadius:20,
         height:40,
-        float:'right',
-        width:'90%'
+        width:'auto',
+        display:'flex',
+        flexGrow:100
     }
 
     const submitStyle={
-        marginTop:1,
+        marginTop:2,
         WebkitAppearance:'none',
-        marginLeft:5
+        marginLeft:5,
+        display:'flex'
     }
 
     const styleDiv={
@@ -44,8 +49,8 @@ const Footer=()=>{
         <h1 style={headStyle}>
             <form onSubmit={handleSubmit}>
                 <div className="row" style={styleDiv}>
-                <input placeholder="Type Your Notes Here" type="text" style={inputStyle}/>
-                    <IoMdSend type="submit" style={submitStyle}/>
+                <input placeholder="Type Your Notes Here" type="text" style={inputStyle} onChange={inptxtchanged}/>
+                <IoMdSend onClick={handleSubmit} style={submitStyle}/>
                 </div>
             </form>
         </h1>
