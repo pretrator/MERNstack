@@ -1,11 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Head from './components/top'
+import Footer from './components/footer'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 import './index.css'
+
 const App=()=>{
+
 
     return (
         <div>
-            <h1> Hi its working</h1>
+            <Head/>
+            <Footer/>
         </div>
     )
 }
